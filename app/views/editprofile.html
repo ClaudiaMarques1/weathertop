@@ -1,0 +1,61 @@
+#{extends 'main.html' /}
+#{set title:'Edit Profile' /}
+
+#{menu id:"dashboard"/}
+<img class="ui centered massive image" src="/public/images/about.jpg">
+<h1 class="ui center aligned header">Edit Profile</h1>
+<p></p>
+<section class="ui two column middle aligned grid basic segment">
+  <div class="column">
+    <form class="ui stacked segment form" action="/editprofile" method="POST">
+      <div class="field">
+        <label>First Name</label> <input placeholder="'David'" name="firstname">
+      </div>
+      <div class="field">
+        <label>Last Name</label> <input placeholder="'Smith''" name="lastname">
+      </div>
+      <div class="field">
+        <label>Email</label> <input placeholder="Email" name="email">
+      </div>
+      <div class="field">
+        <label>Password</label> <input type="password" name="password">
+      </div>
+      <button class="ui blue submit button">Change Details</button>
+    </form>
+  </div>
+  <div class="column">
+    <table class="ui celled striped table">
+      <thead>
+      <tr><th colspan="3">
+        Profile Details
+      </th>
+      </tr></thead>
+      <tbody>
+      <tr>
+        <td class="collapsing">
+          <i class="user circle icon"></i> First Name
+        </td>
+        <td>${member.firstname}</td>
+      </tr>
+      <tr>
+        <td>
+          <i class="user circle icon"></i> Last Name
+        </td>
+        <td>${member.lastname}</td>
+      </tr>
+      <tr>
+        <td>
+          <i class="at icon"></i> Email
+        </td>
+        <td>${member.email}</td>
+      </tr>
+      <tr>
+        <td>
+          <i class="lock icon"></i> Password
+        </td>
+        <td>*********</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

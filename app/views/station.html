@@ -1,0 +1,113 @@
+#{extends 'main.html' /}
+#{set title:'Station' /}
+
+#{menu id:"dashboard"/}
+
+<section class="ui segment">
+  <div class = "ui five doubling cards">
+    <div class="ui inverted card">
+      <div class="extra content">
+          <span class="right floated">
+            <i class="big icons">
+              <i class="purple map marker icon"></i>
+            </i>
+          </span>
+        <div class="header">
+          <h3>${station.name}</h3>
+        </div>
+        <p>
+          <br>
+          Lat: ${station.lat}
+          <br>
+          Lng: ${station.lng}
+        </p>
+      </div>
+    </div>
+    <div class="ui inverted card">
+      <div class="extra content">
+          <span class="right floated">
+            <i class="big icons">
+              <i class="red cloud sun icon"></i>
+            </i>
+          </span>
+        <div class="header">
+          <h3>Weather</h3>
+        </div>
+        <p> </p>
+        <p>${station.weatherCodes}</p>
+      </div>
+    </div>
+    <div class="ui inverted card">
+      <div class="extra content">
+          <span class="right floated">
+            <i class="big icons">
+              <i class="blue temperature high icon"></i>
+            </i>
+          </span>
+        <div class="header">
+          <h3>Temperature</h3>
+        </div>
+        <p></p>
+        <p>
+          ${station.latestTemperatureC} °C
+          <br>
+          ${station.latestTemperatureF} °F
+          <br>
+          Max: ${station.longestReadingTemp}
+          <br>
+          Min: ${station.shortestReadingTemp}
+        </p>
+      </div>
+    </div>
+    <div class="ui inverted card">
+      <div class="extra content">
+          <span class="right floated">
+            <i class="big icons">
+              <i class="green wind icon"></i>
+            </i>
+          </span>
+        <div class="header">
+          <h3>Wind</h3>
+        </div>
+          <p></p>
+          <p>
+            ${station.windChill} bft
+            <br>
+            ${station.windDirection}
+            <br>
+            Feels Like:
+            <br>
+            ${station.beaufortConversion}
+            <br>
+            Max: ${station.longestReadingWind}
+            <br>
+            Min: ${station.shortestReadingWind}
+          </p>
+          </p>
+      </div>
+    </div>
+    <div class="ui inverted card">
+      <div class="extra content">
+          <span class="right floated">
+            <i class="big icons">
+              <i class="orange tachometer alternate icon"></i>
+            </i>
+          </span>
+        <div class="header">
+          <h3>Pressure</h3>
+        </div>
+        <p></p>
+        <p>
+          ${station.latestPressure}
+          <br>
+          Max: ${station.longestReadingPressure}
+          <br>
+          Min: ${station.shortestReadingPressure}
+        </p>
+      </div>
+    </div>
+  </div>
+  <p></p>
+  #{listreadings station:station /}
+  #{addreading station:station /}
+</section>
